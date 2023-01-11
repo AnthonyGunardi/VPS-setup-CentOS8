@@ -62,7 +62,7 @@ sudo npm install -g pm2
 
 - Start application with pm2
 ```
-pm2 start app.js --wait-ready --listen-timeout 4000 --watch
+pm2 start app.js --name AppName --wait-ready --listen-timeout 4000 --watch --ignore-watch="FolderName"
 ```
 
 &nbsp;
