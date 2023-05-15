@@ -39,16 +39,16 @@ sudo dnf install git -y
 sudo dnf module list nodejs
 ```
 
-- Install the selected node.js stream (example: nodejs 16)
+- Install Node.js 16
 ```
 sudo dnf module install nodejs:16/common -y
 ```
 
-- Update node.js to latest stable version
+- Alternative: Install Node.js 18
 ```
-npm cache clean -f
-npm install -g n
-sudo -E env "PATH=$PATH" n stable
+dnf install -y gcc-c++ make 
+curl -sL https://rpm.nodesource.com/setup_18.x | sudo -E bash -
+sudo dnf install nodejs -y
 ```
 
 &nbsp;
@@ -113,7 +113,7 @@ sudo dnf module list mariadb
 sudo dnf install mariadb-server
 ```
 
-- Sart mariadb service
+- Start mariadb service
 ```
 sudo systemctl start mariadb
 ```
@@ -128,7 +128,7 @@ sudo systemctl enable mariadb
 sudo mysql_secure_installation
 ```
 
-- Login to MariaDB shell
+- Login to MariaDB shell (example: username: root)
 ```
 mysql -u root -p
 ```
@@ -141,4 +141,9 @@ CREATE USER 'your username'@'%' IDENTIFIED BY 'your password';
 - Allow Remote Access to MariaDB
 ```
 GRANT ALL PRIVILEGES ON *.* TO 'your username'@'%' IDENTIFIED BY 'your password' WITH GRANT OPTION;
+```
+
+- Create new mariadb database (example: testdb)
+```
+CREATE DATABASE testdb
 ```
