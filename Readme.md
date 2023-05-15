@@ -98,3 +98,47 @@ sudo systemctl enable postgresql
 ```
 sudo -u postgres createdb testdb
 ```
+
+&nbsp;
+
+## Install MariaDB
+---
+- List out the available streams for the postgresql module
+```
+sudo dnf module list mariadb
+```
+
+- Install the selected mariadb stream
+```
+sudo dnf install mariadb-server
+```
+
+- Sart mariadb service
+```
+sudo systemctl start mariadb
+```
+
+- Add mariadb service to system startup of CentOS 8
+```
+sudo systemctl enable mariadb
+```
+
+- Set secure installation
+```
+sudo mysql_secure_installation
+```
+
+- Login to MariaDB shell
+```
+mysql -u root -p
+```
+
+- Create custom root account
+```
+CREATE USER 'your username'@'%' IDENTIFIED BY 'your password';
+```
+
+- Allow Remote Access to MariaDB
+```
+GRANT ALL PRIVILEGES ON *.* TO 'your username'@'%' IDENTIFIED BY 'your password' WITH GRANT OPTION;
+```
