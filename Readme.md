@@ -65,6 +65,16 @@ sudo npm install -g pm2
 pm2 start app.js --name AppName --wait-ready --listen-timeout 4000 --watch --ignore-watch="FolderName"
 ```
 
+- Saving the application list to be restored at reboot
+```
+pm2 save
+```
+
+- Manually restore saved application list at reboot
+```
+pm2 resurrect
+```
+
 &nbsp;
 
 ## Install postgreSQL
