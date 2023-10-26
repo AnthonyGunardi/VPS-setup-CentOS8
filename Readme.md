@@ -120,7 +120,7 @@ sudo dnf module list mariadb
 
 - Install the selected mariadb stream
 ```
-sudo dnf install mariadb-server
+sudo dnf module install mariadb:10.5/server -y (example: mariadb 10.5)
 ```
 
 - Start mariadb service
