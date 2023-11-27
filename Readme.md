@@ -119,6 +119,11 @@ sudo nginx -t
 sudo systemctl restart nginx
 ```
 
+- Create SSL Certificate.crt from .pem file for nginx
+```
+cat your_domain_name_cert.pem CA_bundle.crt >> certificate.crt
+```
+
 &nbsp;
 
 ## Install postgreSQL
