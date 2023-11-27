@@ -77,6 +77,50 @@ pm2 resurrect
 
 &nbsp;
 
+## Install nginx
+---
+- List out the available streams for the nginx module
+```
+sudo dnf module list nginx
+```
+
+- Install the selected nginx stream
+```
+sudo dnf module install nginx:1.20/common -y (example: nginx 1.20)
+```
+
+- Start nginx service
+```
+sudo systemctl start nginx
+```
+
+- Add nginx service to system startup of CentOS 8
+```
+sudo systemctl enable nginx
+```
+
+- Install nano text editor
+```
+sudo dnf install nano
+```
+
+- Edit nginx config
+```
+sudo nano /etc/nginx/nginx.conf
+```
+
+- Check syntax of nginx config
+```
+sudo nginx -t
+```
+
+- Restart nginx service
+```
+sudo systemctl restart nginx
+```
+
+&nbsp;
+
 ## Install postgreSQL
 ---
 - List out the available streams for the postgresql module
