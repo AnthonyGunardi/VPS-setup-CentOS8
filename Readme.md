@@ -15,6 +15,20 @@ sudo su
 
 &nbsp;
 
+## Set SElinux to permissive
+---
+- Set SElinux to permissive
+```
+sudo setenforce 0
+```
+
+- Check status of SElinux
+```
+sudo getenforce
+```
+
+&nbsp;
+
 ## Change the repo URL to point to official CentOS vault repos
 ---
 ```
