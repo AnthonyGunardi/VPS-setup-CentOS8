@@ -89,6 +89,11 @@ pm2 save
 pm2 resurrect
 ```
 
+- Generate script to add pm2 into system startup of CentOS 8
+```
+pm2 startup
+```
+
 &nbsp;
 
 ## Install nginx
