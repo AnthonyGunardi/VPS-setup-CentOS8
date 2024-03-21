@@ -8,9 +8,19 @@
 whoami
 ```
 
-- Get root access for current user
+- Set password for default root account
 ```
-sudo su
+sudo passwd
+```
+
+- Create user
+```
+sudo adduser your_username
+```
+
+- Get root access for user
+```
+sudo usermod -aG root your_username
 ```
 
 &nbsp;
@@ -58,10 +68,10 @@ sudo dnf module list nodejs
 sudo dnf module install nodejs:16/common -y
 ```
 
-- Alternative: Install Node.js 18
+- Alternative: Install Node.js 20
 ```
 dnf install -y gcc-c++ make 
-curl -sL https://rpm.nodesource.com/setup_18.x | sudo -E bash -
+curl -sL https://rpm.nodesource.com/setup_20.x | sudo -E bash -
 sudo dnf install nodejs -y
 ```
 
@@ -177,9 +187,19 @@ sudo systemctl start postgresql
 sudo systemctl enable postgresql
 ```
 
+- Login to PostgreSQL shell (example: username: postgres)
+```
+psql -u postgres -p
+```
+
+- Change password of default root account
+```
+ALTER USER postgres WITH PASSWORD 'new password';
+```
+
 - Create new postgresql database (example: testdb)
 ```
-sudo -u postgres createdb testdb
+CREATE DATABASE testdb
 ```
 
 &nbsp;
@@ -216,6 +236,14 @@ sudo mysql_secure_installation
 mysql -u root -p
 ```
 
+- Change password of default root account
+```
+ALTER USER 'root'@'localhost' IDENTIFIED with mysql_native_password;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'new password';
+FLUSH PRIVILEGES;
+
+```
+
 - Create custom root account
 ```
 CREATE USER 'your username'@'%' IDENTIFIED BY 'your password';
@@ -224,6 +252,7 @@ CREATE USER 'your username'@'%' IDENTIFIED BY 'your password';
 - Allow Remote Access to MariaDB
 ```
 GRANT ALL PRIVILEGES ON *.* TO 'your username'@'%' IDENTIFIED BY 'your password' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
 ```
 
 - Create new mariadb database (example: testdb)
